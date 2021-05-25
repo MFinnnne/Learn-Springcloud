@@ -1,4 +1,4 @@
-package com.atguigu.service.impl;
+package com.atguigu.springcloud.service.impl;
 
 /**
  * @author MFine
@@ -6,9 +6,9 @@ package com.atguigu.service.impl;
  * @date 2021/5/24 23:46
  **/
 
-import com.atguigu.dao.PaymentMapper;
-import com.atguigu.entities.Payment;
-import com.atguigu.service.PaymentService;
+import com.atguigu.springcloud.dao.PaymentMapper;
+import com.atguigu.springcloud.entities.Payment;
+import com.atguigu.springcloud.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
