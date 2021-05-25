@@ -1,11 +1,10 @@
-package com.atguigu.controller;
+package com.atguigu.springcloud.controller;
 
-import com.atguigu.entities.CommonResult;
-import com.atguigu.entities.Payment;
+import com.atguigu.springcloud.entities.CommonResult;
+import com.atguigu.springcloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
@@ -23,9 +22,8 @@ public class OrderController {
     @Resource
     private RestTemplate restTemplate;
 
-    //因为浏览器只支持get请求，为了方便这里就用get
-    @GetMapping("/consumer/payment/create")
-    public CommonResult<Payment> create(Payment payment){
+    @PostMapping("/consumer/payment/create")
+    public CommonResult<Payment> create(@RequestBody Payment payment){
         log.info("********插入的数据：" + payment);
         //postForObject分别有三个参数：请求地址，请求参数，返回的对象类型
         return restTemplate.postForObject(PAYMENT_URL + "/payment/create", payment, CommonResult.class);

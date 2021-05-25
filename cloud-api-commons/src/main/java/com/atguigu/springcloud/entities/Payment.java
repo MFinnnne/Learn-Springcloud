@@ -1,20 +1,17 @@
 package com.atguigu.springcloud.entities;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /**
  * @author MFine
  * @version 1.0
- * @date 2021/5/24 23:36
+ * @date 2021/5/25 21:09
  **/
-
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Payment {
     /**
      * ID
