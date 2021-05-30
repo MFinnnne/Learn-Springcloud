@@ -5,12 +5,9 @@ import com.atguigu.springcloud.entities.Payment;
 import com.atguigu.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @author MFine
@@ -23,10 +20,6 @@ public class PaymentController {
 
     @Resource
     private PaymentService paymentService;
-
-    @Resource
-    private DiscoveryClient discoveryClient;
-
 
     @Value("${server.port}")
     private String servicePort;
@@ -54,19 +47,5 @@ public class PaymentController {
         } else {
             return new CommonResult<>(444, "没有对应记录，查询ID：" + id);
         }
-    }
-
-    @GetMapping("payment/discovery")
-    public Object discovery() {
-        List<String> services = this.discoveryClient.getServices();
-        services.forEach((item) -> {
-            log.info("*****element: " + item);
-        });
-        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
-        instances.forEach(item -> {
-            log.info(item.getServiceId() + "\t" + item.getHost()
-                    + "\t" + item.getPort() + "\t" + item.getUri());
-        });
-        return discoveryClient;
     }
 }
