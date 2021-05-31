@@ -1,5 +1,5 @@
 server:
-  port: 8002
+  port: 8004
 
 spring:
   application:
@@ -10,6 +10,9 @@ spring:
     url: jdbc:mysql://159.75.128.32:3306/cloud?useUnicode=true&characterEncoding=utf-8
     username: root
     password: mfinetoo
+  cloud:
+    zookeeper:
+      connect-string: 159.75.128.32:2181
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.atguigu.springcloud.entities
