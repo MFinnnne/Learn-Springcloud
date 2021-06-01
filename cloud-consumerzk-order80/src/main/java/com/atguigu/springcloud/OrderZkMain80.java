@@ -7,12 +7,14 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 /**
  * @author MFine
  * @version 1.0
- * @date 2021/5/24 23:11
+ * @date 2021/5/25 21:06
  **/
 @SpringBootApplication
 @EnableDiscoveryClient
-public class PaymentMain8004 {
+public class OrderZkMain80 {
     public static void main(String[] args) {
-        SpringApplication.run(PaymentMain8004.class);
+        SpringApplication.run(OrderZkMain80.class);
     }
+
+
 }

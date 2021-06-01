@@ -6,7 +6,6 @@ import com.atguigu.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.Resource;
 
 /**
@@ -40,7 +39,6 @@ public class PaymentController {
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
         Payment payment = paymentService.getPaymentById(id);
         log.info("******查询结果：" + payment);
-
         if (payment != null) {
             //查询成功
             return new CommonResult<>(200, "查询成功,server port:" + servicePort, payment);
