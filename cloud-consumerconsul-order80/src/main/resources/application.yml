@@ -1,0 +1,11 @@
+server:
+  port: 80
+spring:
+  application:
+    name: cosumer-order-Service
+  cloud:
+    consul:
+      host: 159.75.128.32
+      discovery:
+        heartbeat:
+          enabled: true
