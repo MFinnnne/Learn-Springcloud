@@ -36,8 +36,8 @@ public class OrderController {
         log.info("********查询的id：" + id);
         //getForObject两个参数：请求地址，返回的对象类型
         ResponseEntity<CommonResult> forEntity = restTemplate.getForEntity(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);
-        if (forEntity.getStatusCode().is2xxSuccessful()) {
-            return new CommonResult<>(444, "操作失败")；
+        if (forEntity.getStatusCode().is4xxClientError()) {
+            return new CommonResult<>(444, "操作失败");
         }
         return forEntity.getBody();
     }
