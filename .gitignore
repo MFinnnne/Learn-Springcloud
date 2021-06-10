@@ -8,3 +8,5 @@
 /httpRequests/
 
 target/
+
+/cloud-consumer-order80/target
