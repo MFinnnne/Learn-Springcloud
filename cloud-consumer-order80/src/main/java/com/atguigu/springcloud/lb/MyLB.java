@@ -1,6 +1,5 @@
-package com.atguigu.lb;
+package com.atguigu.springcloud.lb;
 
-import lombok.extern.log4j.Log4j;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.stereotype.Component;
 
