@@ -1,5 +1,6 @@
 package com.atguigu.lb;
 
+import lombok.extern.log4j.Log4j;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.stereotype.Component;
 
@@ -22,12 +23,14 @@ public class MyLB implements LoadBalancer {
         do {
             current = this.atomicInteger.get();
             next = current >= Integer.MAX_VALUE ? 0 : current + 1;
-        } while (this.atomicInteger.compareAndSet(current, next));
+        } while (!this.atomicInteger.compareAndSet(current, next));
+        System.out.println("***** 第几次访问 next: " + next);
         return next;
     }
 
     @Override
     public ServiceInstance instances(List<ServiceInstance> serviceInstances) {
-        return null;
+        int index = getAndIncrement() % serviceInstances.size();
+        return serviceInstances.get(index);
     }
 }
