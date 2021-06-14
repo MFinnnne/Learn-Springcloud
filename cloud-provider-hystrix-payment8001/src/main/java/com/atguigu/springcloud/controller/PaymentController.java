@@ -22,6 +22,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class PaymentController {
 
+
     @Resource
     private PaymentService paymentService;
 
@@ -85,5 +86,15 @@ public class PaymentController {
             e.printStackTrace();
         }
         return servicePort;
+    }
+
+    @GetMapping(value = "/payment/hystrix/ok/{id}")
+    public String paymentHystrixOk(@PathVariable Integer id) {
+        return paymentService.paymentInfoOk(id);
+    }
+
+    @GetMapping(value = "/payment/hystrix/timeOut/{id}")
+    public String paymentHystrixTimeOut(@PathVariable Integer id) {
+        return paymentService.paymentInfoTimeOut(id);
     }
 }
