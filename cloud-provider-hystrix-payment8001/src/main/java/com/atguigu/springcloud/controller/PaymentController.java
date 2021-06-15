@@ -3,6 +3,7 @@ package com.atguigu.springcloud.controller;
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.entities.Payment;
 import com.atguigu.springcloud.service.PaymentService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
@@ -95,6 +96,9 @@ public class PaymentController {
 
     @GetMapping(value = "/payment/hystrix/timeOut/{id}")
     public String paymentHystrixTimeOut(@PathVariable Integer id) {
+
         return paymentService.paymentInfoTimeOut(id);
     }
+
+
 }
