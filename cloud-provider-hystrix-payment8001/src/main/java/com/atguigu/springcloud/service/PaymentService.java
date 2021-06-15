@@ -2,6 +2,7 @@ package com.atguigu.springcloud.service;
 
 import com.atguigu.springcloud.entities.Payment;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,12 +15,14 @@ public interface PaymentService {
 
     int create(Payment payment);
 
-    Payment getPaymentById(@Param("id") Long id);
+    Payment getPaymentById( Long id);
 
 
     String paymentInfoOk(Integer id);
 
 
     String paymentInfoTimeOut(Integer id);
+
+    String paymentCircuitBreaker( Integer id);
 
 }

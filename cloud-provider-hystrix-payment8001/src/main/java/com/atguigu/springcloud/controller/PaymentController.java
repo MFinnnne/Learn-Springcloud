@@ -94,11 +94,17 @@ public class PaymentController {
         return paymentService.paymentInfoOk(id);
     }
 
+    @GetMapping("/payment/circuit/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
+        String res = paymentService.paymentCircuitBreaker(id);
+        log.info("*** result: " + res);
+        return res;
+    }
+
     @GetMapping(value = "/payment/hystrix/timeOut/{id}")
     public String paymentHystrixTimeOut(@PathVariable Integer id) {
 
         return paymentService.paymentInfoTimeOut(id);
     }
-
 
 }

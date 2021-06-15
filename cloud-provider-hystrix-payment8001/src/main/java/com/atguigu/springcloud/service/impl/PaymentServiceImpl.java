@@ -62,12 +62,13 @@ public class PaymentServiceImpl implements PaymentService {
     @HystrixCommand(
             fallbackMethod = "paymentCircuitBreakerFallback",
             commandProperties = {
-                    @HystrixProperty(name="circuitBreaker.enable",value = "true"),
+                    @HystrixProperty(name="circuitBreaker.enabled",value = "true"),
                     @HystrixProperty(name="circuitBreaker.requestVolumeThreshold",value = "10"),
                     @HystrixProperty(name="circuitBreaker.sleepWindowInMilliseconds",value = "10000"),
                     @HystrixProperty(name="circuitBreaker.errorThresholdPercentage",value = "60"),
             }
     )
+    @Override
     public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
         if (id < 0) {
             throw new RuntimeException("id can not less than zero");
