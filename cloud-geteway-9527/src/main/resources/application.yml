@@ -5,16 +5,21 @@ spring:
     name: cloud-getaway
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
       routes:
-        - id: payment_touth
-          uri: http://localhost:8001
+        - id: payment_routh
+          uri: lb://CLOUD-PAYMENT-SERVICE
           predicates:
             - Path=/payment/get/**
 
         - id: payment_routh2
-          uri: http://localhost:8001
+          uri: lb://CLOUD-PAYMENT-SERVICE
           predicates:
             - Path=/payment/lb/**
+            - After=2021-06-21T23:42:50.444+08:00[Asia/Shanghai]
+            - Cookie=username,zzyy
 eureka:
   instance:
     hostname: cloud-geteway-service
