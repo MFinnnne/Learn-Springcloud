@@ -1,6 +1,11 @@
 server:
   port: 3355
 spring:
+  rabbitmq:
+    host: 159.75.128.32
+    port: 5672
+    username: admin
+    password: aaaaaa
   application:
     name: config-client
   cloud:
