@@ -1,5 +1,5 @@
 server:
-  port: 8802
+  port: 8803
 spring:
   rabbitmq:
     host: 159.75.128.32
@@ -26,6 +26,7 @@ spring:
           content-type: application/json # 设置消息类型，本次为json，文本则设置“text/plain”
           binder: defaultRabbit # 设置要绑定的消息服务的具体设置
           group: atguiguA
+
 
 
 eureka:
