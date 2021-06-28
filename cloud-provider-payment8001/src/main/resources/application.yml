@@ -10,6 +10,11 @@ spring:
     url: jdbc:mysql://159.75.128.32:3306/cloud?useUnicode=true&characterEncoding=utf-8
     username: root
     password: mfinetoo
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.atguigu.springcloud.entities
@@ -25,4 +30,3 @@ eureka:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 30
     lease-expiration-duration-in-seconds: 90
-
